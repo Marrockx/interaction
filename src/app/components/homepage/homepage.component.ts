@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
-import { ButtonServiceService } from 'src/app/button-service.service';
+import { ButtonServiceService } from '../../button-service.service';
 import { ButtonComponent } from '../button/button.component';
 
 export interface buttonInterface{

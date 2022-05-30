@@ -11,7 +11,7 @@ export class ButtonServiceService {
  getData(): Observable<buttonInterface[]> {
     return (
       this.http
-      .get<buttonInterface[]>('./assets/data.json')
+      .get<buttonInterface[]>('../assets/data.json')
       .pipe(
         map((buttons: buttonInterface[]) => {
         return buttons;
