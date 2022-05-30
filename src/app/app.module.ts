@@ -8,6 +8,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { FomanticUIModule } from 'ngx-fomantic-ui';
 import { ButtonComponent } from './components/button/button.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { HttpClientModule } from '@angular/common/http';
+import { ButtonServiceService } from './button-service.service';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,10 @@ import { NgToastModule } from 'ng-angular-popup';
     BrowserModule,
     AppRoutingModule,
     FomanticUIModule,
-    NgToastModule
+    NgToastModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ButtonServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

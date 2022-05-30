@@ -1,12 +1,12 @@
-import { AfterViewInit, Component, OnInit, ComponentFactoryResolver, ViewChild,  ElementRef, ViewContainerRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
+import { ButtonServiceService } from 'src/app/button-service.service';
 import { ButtonComponent } from '../button/button.component';
 
-interface buttonInterface{
+export interface buttonInterface{
   id?: string,
   name: string,
-  displayText?: string,
-  text?: string | undefined,
+  displayText: string,
   }
 
   const Components:any = {
@@ -19,34 +19,27 @@ interface buttonInterface{
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit,AfterViewInit{
+export class HomepageComponent implements OnInit{
 
   headerText:string = 'Component Interaction';
 
-  buttons:Array<buttonInterface> = [
-    {name:'Button1'},
-    {name:'Button2'}
-  ];
+  buttons:Array<buttonInterface> = [];
 
   displayText:string ='';
 
-  btnTexts = [
-    'hello',
-    'test'
-  ]
-
-  constructor(private toast: NgToastService) {}
+  constructor(private toast: NgToastService, private buttonService: ButtonServiceService) {}
+  
   ngOnInit(): void {
-    
-  }
-  ngAfterViewInit(): void {
+    this.buttonService.getData().subscribe(
+      (buttons: buttonInterface[]) => {
+        this.buttons = buttons;
+      }
+    )
   }
 
   showToastr(getDisplayText?:any){
     this.toast.info({detail:"NOTIFICATION",summary:`${getDisplayText} was clicked`,duration:3000});
   }
-
- 
 
 }
 

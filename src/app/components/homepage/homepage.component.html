@@ -2,11 +2,10 @@
     <h1 class="ui header">{{headerText}}</h1>
     <div class="ui horizontal container">
 
-        <custom-button class="custom-btn" *ngFor="let btnText of btnTexts; let i = index" [id]="'btn-' + (i+1)"
-            [displayText]="btnText | uppercase" (triggerToastr)="showToastr(btnText)" [name]="buttons[i].name">
+        <custom-button class="custom-btn" *ngFor="let button of buttons; let i = index"
+            [id]="'btn-' + (button?.id || (i+1))" [displayText]="button.displayText| uppercase"
+            (triggerToastr)="showToastr(button.displayText)" [name]="button.name">
         </custom-button>
-
-        <ng-container #container></ng-container>
         <lib-ng-toast class="toast"></lib-ng-toast>
     </div>
 </div>
