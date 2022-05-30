@@ -1,0 +1,30 @@
+/** @format */
+
+.ui.center.aligned.container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	height: 60vh;
+}
+
+.ui.header {
+	margin-bottom: 6rem;
+	font-size: 3.2rem;
+}
+
+.ui.horizontal.container .custom-btn:first-child {
+	margin-right: 2rem;
+}
+
+@media screen and (max-width: 480px) {
+	.ui.horizontal.container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.ui.horizontal.container .custom-btn:first-child {
+		margin: 0;
+		margin-bottom: 2rem;
+	}
+}
